@@ -24,11 +24,20 @@ module.exports = {
     `gatsby-plugin-sass`,
     `gatsby-plugin-offline`,
     `gatsby-transformer-remark`,
+    'gatsby-transformer-sharp',
+    'gatsby-plugin-sharp',
     {
       resolve: "gatsby-source-filesystem",
       options: {
         path: `${__dirname}/content`,
         name: "content"
+      }
+    },
+     {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        path: `${__dirname}/images`,
+        name: "images"
       }
     }
   ]

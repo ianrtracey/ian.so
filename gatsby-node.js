@@ -16,7 +16,7 @@ exports.createPages = ({ actions, graphql }) => {
                   slug
               }
             frontmatter {
-              title
+              type
             }
           }
         }
@@ -27,19 +27,32 @@ exports.createPages = ({ actions, graphql }) => {
                     console.log(result.errors)
                     return reject(result.errors)
                 }
-                const blogTemplate = path.resolve('./src/layouts/blogPost.js');
                 result.data.allMarkdownRemark.edges.forEach(({ node }) => {
-                    createPage({
-                        path: node.fields.slug,
-                        component: blogTemplate,
-                        context: {
-                            slug: node.fields.slug,
-                        }, // additional data can be passed via context
-                    })
+                    if (isBlogPost(node)) {
+                        createBlogPost(node, createPage);
+                    }
+                  
                 })
                 return
             })
         )
+    })
+}
+
+const isBlogPost = (node) => {
+    const slug = node.fields.slug
+    return node.frontmatter.type === 'post'
+}
+
+const createBlogPost = (node, createPage) => {
+    console.log(`creating blog post ${node.fields.slug}`);
+    const blogTemplate = path.resolve('./src/layouts/blogPost.js');
+    createPage({
+        path: node.fields.slug,
+        component: blogTemplate,
+        context: {
+        slug: node.fields.slug,
+        }, // additional data can be passed via context
     })
 }
 

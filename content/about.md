@@ -1,5 +1,6 @@
 ---
 title: "About"
+type: "page"
 description: About me
 date: ''
 image: ''

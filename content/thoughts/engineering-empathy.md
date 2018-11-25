@@ -1,5 +1,6 @@
 ---
 title: "Engineering Empathy"
+type: "post"
 description: "Every high-performing team I have been on all share one thing in common: deep empathy."
 date: "April 29th, 2018"
 image: ""
