@@ -17,22 +17,21 @@ export default () => (
       }
     `}
     render={data => (
-      <div className="mw9 center pa4 pt5-ns ph7-l mb4">
-        <h1 className="f2 black-7 lh-copy sans-serif mb0 pb0">
-          {data.site.siteMetadata.title}
-        </h1>
-        <div className="san-serif db dtc-1 mr3 w-100 v-mid w-75-l tr-1">
+      <nav className="mb5">
+        <h1 className="f2 sans-serif mb0">{data.site.siteMetadata.title}</h1>
+        <div className="san-serif">
           {data.site.siteMetadata.nav.map(item => (
             <Link
+              key={item.url}
               to={item.url}
-              className="sans-serif link dim black-7 f5 f3-l dib mr3 mr4-l"              
-              activeClassName="sans-serif link gray f5 f3-l dib mr3 mr4-l"
+              className=" sans-serif link dim black-7 dib mr4"
+              activeClassName="sans-serif link light-gray dib"
             >
-              <p>{item.text}</p>
+              <p>{item.text.toUpperCase()}</p>
             </Link>
           ))}
         </div>
-      </div>
+      </nav>
     )}
   />
 );

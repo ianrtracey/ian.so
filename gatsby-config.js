@@ -13,10 +13,6 @@ module.exports = {
       {
         text: "Talks",
         url: "/talks "
-      },
-      {
-        text: "Contact",
-        url: "/contact "
       }
     ]
   },
@@ -24,8 +20,8 @@ module.exports = {
     `gatsby-plugin-sass`,
     `gatsby-plugin-offline`,
     `gatsby-transformer-remark`,
-    'gatsby-transformer-sharp',
-    'gatsby-plugin-sharp',
+    "gatsby-transformer-sharp",
+    "gatsby-plugin-sharp",
     {
       resolve: "gatsby-source-filesystem",
       options: {
@@ -33,7 +29,7 @@ module.exports = {
         name: "content"
       }
     },
-     {
+    {
       resolve: "gatsby-source-filesystem",
       options: {
         path: `${__dirname}/images`,
